@@ -6,7 +6,7 @@ const initialState = {
 }
 
 
-export const ainmeReducer = (state=initialState, { type, payload }) => {
+export const animeReducer = (state=initialState, { type, payload }) => {
     // For animes list
     switch(type) {
         case AnimeActionTypes.SET_ANIMES:
