@@ -1,6 +1,6 @@
-export const ActionTypes = {
-    SET_ANIME: "SET_ANIME",
+export const AnimeActionTypes = {
+    SET_ANIMES: "SET_ANIMES",
     SELECTED_ANIME: "SELECTED_ANIME",
     REMOVE_SELECTED_ANIME: "REMOVE_SELECTED_ANIME",
-    AINME_ERROR: "AINME_ERROR" 
+    AINME_ERRORS: "AINME_ERRORS" 
 }
