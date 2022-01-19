@@ -1,10 +1,10 @@
 import { createStore } from "redux";
-import reducers from "./reducers/index";
+import rootReducers from "./reducers/index";
 
 const initialSate = {};
 
 const store = createStore(
-    reducers,
+    rootReducers,
     initialSate,
 
     // For monitoring the store from the browser

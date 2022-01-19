@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import { animeReducer, selectedAnimeReducer } from "./animeReducer";
 
-const reducers = combineReducers({
+const rootReducers = combineReducers({
     allAnimes: animeReducer,
     anime: selectedAnimeReducer,
 });
 
-export default reducers;
+export default rootReducers;
