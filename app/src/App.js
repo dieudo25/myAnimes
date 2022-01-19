@@ -7,11 +7,14 @@ import {
 
 import Layout from './components/layout/Layout';
 import AnimeList from './components/anime/AnimeList'
+import AinmeDetail from "./components/anime/AnimeDetail";
+
 
 const App = () => (
   <Router>
     <Layout >
       <Routes>
+        <Route path="/anime/:id" element={ <AinmeDetail /> } />
         <Route path="/" element={ <AnimeList /> } />
       </Routes>
     </Layout>
