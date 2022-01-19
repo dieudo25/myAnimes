@@ -1,7 +1,7 @@
 import { AnimeActionTypes } from "../constants/action-types";
 
 const initialState = {
-    ainmes: [],
+    animes: [],
     loading: true
 }
 
@@ -12,10 +12,10 @@ export const animeReducer = (state=initialState, { type, payload }) => {
         case AnimeActionTypes.SET_ANIMES:
             return {
                 ...state,
-                ainmes: payload,
+                animes: payload,
                 loading: false
             };
-        case AnimeActionTypes.AINME_ERRORS:
+        case AnimeActionTypes.ANIME_ERRORS:
             return {
                 error: payload,
                 loading: false
@@ -34,7 +34,7 @@ export const selectedAnimeReducer = (state={}, {type, payload}) => {
                 ...payload,
                 loading: false
             };
-        case AnimeActionTypes.AINME_ERRORS:
+        case AnimeActionTypes.ANIME_ERRORS:
             return {
                 error: payload,
                 loading: false,
