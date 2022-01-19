@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { setAnimes } from '../../state/actions/animeActions';
 import { AnimeActionTypes } from "../../state/constants/action-types";
-import AnimeContainer from "./AnimeContainer";
+import AnimeContainer from "./AnimeListContainer";
 
 const AnimeList = () => {
-    const animes = useSelector(state => state.allAnimes);
+    const animesState = useSelector(state => state.allAnimes);
     const dispatch = useDispatch();
     const headers = {
         "Content-Type": "application/json",
@@ -30,11 +31,7 @@ const AnimeList = () => {
         fetchAnimesList();
     }, []);
 
-    return (
-        <div className="container grid">
-            <AnimeContainer />
-        </div>
-    )
+   return <AnimeContainer />;
 }
 
 export default AnimeList;
