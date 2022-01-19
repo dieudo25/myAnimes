@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import Spinner from '../basic/Spinner';
 
@@ -11,7 +12,7 @@ const AnimeContainer = () => {
     console.log("animeContainer", animesState)
 
     if (animesState.loading) {
-        return <Spinner />
+        return <Spinner />;
     } else {
         return (
             <section className="section-anime">
@@ -31,19 +32,29 @@ const AnimeContainer = () => {
                             return (
                                 <>
                                     <tr className={index % 2 == 0 && "bg-gray-100"}>
-                                        <td className="py-5 px-3 min-w-[120px]">{ data.title.en }</td>
-                                        <td className="py-5 px-3 min-w-[120px]">{ truncate(data.description.en, 200) }</td>
-                                        <td className="py-5 px-3 min-w-[120px]">{ data.year }</td>
-                                        <td className="py-5 px-3 min-w-[120px]">{ formatDate(data.createdAt) }</td>
-                                        <td className="py-5 px-3 min-w-[120px]">{ formatDate(data.updatedAt) }</td>
+                                        <td className="py-5 px-3 min-w-[120px]">
+                                            <Link to={`/anime/${anime.id}`}>{ data.title.en }</Link>
+                                        </td>
+                                        <td className="py-5 px-3 min-w-[120px]">
+                                            { truncate(data.description.en, 200) }
+                                        </td>
+                                        <td className="py-5 px-3 min-w-[120px]">
+                                            { data.year }
+                                        </td>
+                                        <td className="py-5 px-3 min-w-[120px]">
+                                            { formatDate(data.createdAt) }
+                                        </td>
+                                        <td className="py-5 px-3 min-w-[120px]">
+                                            { formatDate(data.updatedAt) }
+                                        </td>
                                     </tr>
                                 </>
-                            )
+                            );
                         })}
                     </tbody>
                 </table>
             </section>
-        )
+        );
     }
 }
 
