@@ -19,3 +19,16 @@ export const removeSelectedAnime = () => {
         type: AnimeActionTypes.REMOVE_SELECTED_ANIME,
     };
 };
+
+export const selectedAnimeCover = (animeCover) => {
+    return {
+        type: AnimeActionTypes.SELECTED_ANIME_COVER,
+        payload: animeCover
+    };
+};
+
+export const removeSelectedAnimeCover = () => {
+    return {
+        type: AnimeActionTypes.REMOVE_SELECTED_ANIME_COVER,
+    };
+};
