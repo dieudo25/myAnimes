@@ -11,7 +11,6 @@ const AnimeList = () => {
     const animesState = useSelector(state => state.allAnimes);
     const offset = animesState.offset;
     const limit = animesState.limit;
-    console.log("animes", animesState)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -31,7 +30,6 @@ const AnimeList = () => {
                     })
                 }
             );
-            console.log("response", response);
             dispatch(setAnimes(response.data));
         };
 
@@ -41,7 +39,6 @@ const AnimeList = () => {
     if (animesState.loading) {
         return <Spinner />;
     } else if (!animesState.loading && animesState.error) {
-        console.log("error", animesState);
         return (
             <>
                 <h1>{ JSON.stringify(animesState.error.toJSON) }</h1>

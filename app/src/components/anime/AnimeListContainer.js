@@ -7,6 +7,7 @@ import AnimeCover from './AnimeCover';
 import DataNotFound from '../basic/DataNotfound';
 
 import truncate from '../../utils/truncate';
+import AnimeTags from './AnimeTags';
 
 const AnimeListContainer = () => {
     const animesState = useSelector(state => state.allAnimes);
@@ -14,9 +15,9 @@ const AnimeListContainer = () => {
     const theadStyle = "bg-main-500 text-white h-[100px]";
     const trStyle = "h-[200px]";
     const tdStyle = "py-5 px-3 min-w-[120px] border-b-2 border-main-500";
-    const tdLinkStyle = "hover:text-main-500";
     const tagsContainer = "grid grid-cols-1 h-full";
-    const tagStyle = "bg-main-500 px-3 py-2 mb-2 rounded-lg text-white text-center text-[12px] font-bold";
+    const tdLinkStyle = "hover:text-main-500";
+    
 
     if (animesState.loading) {
         return <Spinner />;
@@ -69,11 +70,7 @@ const AnimeListContainer = () => {
                                     </td>
                                     <td className={ `${ tdStyle } text-center` }>
                                         <div className={ tagsContainer }>
-                                            { data.tags.map((tag) => (
-                                                <span key={ tag.id } className={ tagStyle }>
-                                                    { tag.attributes.name.en }
-                                                </span>
-                                            )) }
+                                            <AnimeTags tags={ data.tags } />
                                         </div>
                                     </td>
                                     <td className={ `${ tdStyle } text-center capitalize` }>

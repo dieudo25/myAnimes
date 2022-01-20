@@ -35,23 +35,11 @@ const AnimeCover = ({ animeCoverId, animeId }) => {
         return <Spinner />;
     } else {
         const data = animeCoverState.data.attributes
-        // console.log("data filename", data.fileName);
-        // console.log("animeId", animeId);
-        // console.log("animeCoverId", animeCoverId);
+        
         return (
-            <div className="img-container">
-                <img href={ `https://uploads.mangadex.org/covers/${ animeId }/${ data.fileName }` } />
-            </div>
+            <img src={ `https://uploads.mangadex.org/covers/${ animeId }/${ data.fileName }` } />
         )
     }
 }
 
 export default AnimeCover;
-
-/* 
-
-https://uploads.mangadex.org/covers/8f8b7cb0-7109-46e8-b12c-0448a6453dfa/0d79ccf5-f0a8-43ba-b29b-13ada4d991da.jpg
-
-https://uploads.mangadex.org/covers/8f8b7cb0-7109-46e8-b12c-0448a6453dfa/2f0ef6e6-d99c-476c-9265-c04a9a0b0c12.jpg 
-
-*/
