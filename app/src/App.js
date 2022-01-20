@@ -9,6 +9,8 @@ import Layout from './components/layout/Layout';
 import AnimeList from './components/anime/AnimeList'
 import AinmeDetail from "./components/anime/AnimeDetail";
 
+import "./App.css"
+
 
 const App = () => (
   <Router>
