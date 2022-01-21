@@ -22,10 +22,13 @@ const MangaList = () => {
             limit: limit,
             offset: offset,
         }
+        const headers = {
+            "Access-Control-Allow-Origin": "*"
+        }
 
         const fetchMangasList = async () => {
             const response = await axios
-                .get(ANIME_LIST_URL, { params })
+                .get(ANIME_LIST_URL, headers, { params })
                 .catch((err) => {
                     dispatch({
                         type: MangaActionTypes.ANIME_ERRORS,
