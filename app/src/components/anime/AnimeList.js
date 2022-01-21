@@ -44,6 +44,16 @@ const AnimeList = () => {
     } else {
         return (
             <>
+                <h2 className="text-center mb-5 font-bold">
+                    Display a list of mangas from the 
+                    <a 
+                        href="https://api.mangadex.org/docs.html" 
+                        target="_blank" 
+                        className="text-main-500 ml-1"
+                    >
+                            MangaDex API
+                    </a>
+                </h2>
                 <AnimeListContainer />
                 <AnimePagination />
             </>
