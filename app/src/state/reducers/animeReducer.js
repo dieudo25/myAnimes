@@ -2,7 +2,7 @@ import { AnimeActionTypes } from "../constants/action-types";
 
 const initialState = {
     animes: [],
-    limit: 5,
+    limit: 10,
     loading: true
 }
 

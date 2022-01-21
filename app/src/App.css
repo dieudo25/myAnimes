@@ -3,12 +3,16 @@
  }
  
  .scroll-bar::-webkit-scrollbar-track {
-     background-color: rgba(0,0,0,0.1); 
+     background-color: #0000001a; 
      border-radius: 0px;
      
  }
  
  .scroll-bar::-webkit-scrollbar-thumb {
      border-radius: 0px;
-     background-color: rgba(159,54,54); 
+     background-color: #9f3636; 
+ }
+
+ .scroll-bar::-webkit-scrollbar-thumb:hover {
+     background-color: #4f0202;
  }

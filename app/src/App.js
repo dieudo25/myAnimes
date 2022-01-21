@@ -7,16 +7,17 @@ import {
 
 import Layout from './components/layout/Layout';
 import AnimeList from './components/anime/AnimeList'
-import AinmeDetail from "./components/anime/AnimeDetail";
+import AnimeDetail from "./components/anime/AnimeDetail";
 
 import "./App.css"
 
 
 const App = () => (
+  /* MyAnimes App */
   <Router>
     <Layout >
       <Routes>
-        <Route path="/anime/:id" element={ <AinmeDetail /> } />
+        <Route path="/anime/:id" element={ <AnimeDetail /> } />
         <Route path="/" element={ <AnimeList /> } />
       </Routes>
     </Layout>
