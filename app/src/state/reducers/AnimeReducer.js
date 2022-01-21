@@ -1,4 +1,4 @@
-import { MangaActionTypes } from "../constants/action-types";
+import { MangaActionTypes } from "../constants/Action-types";
 
 const initialState = {
     mangas: [],
@@ -8,7 +8,7 @@ const initialState = {
 }
 
 
-export const animeReducer = (state=initialState, { type, payload }) => {
+export const AnimeReducer = (state=initialState, { type, payload }) => {
     // For mangas list
     switch(type) {
         case MangaActionTypes.SET_ANIMES:

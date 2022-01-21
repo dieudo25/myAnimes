@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setMangas } from '../../state/actions/animeActions';
-import { MangaActionTypes } from "../../state/constants/action-types";
+import { setMangas } from '../../state/actions/MangaActions';
+import { MangaActionTypes } from "../../state/constants/Action-types";
 import MangaListContainer from "./MangaListContainer";
 import Spinner from "../basic/Spinner";
 import MangaPagination from "./MangaPagination";

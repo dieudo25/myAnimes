@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { MangaActionTypes } from "../../state/constants/action-types";
+import { MangaActionTypes } from "../../state/constants/Action-types";
 
 
 const MangaPagination = () => {

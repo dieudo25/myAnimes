@@ -1,4 +1,4 @@
-import { MangaActionTypes } from "../constants/action-types";
+import { MangaActionTypes } from "../constants/Action-types";
 
 export const setMangas = (mangas) => {
     /* Action for updating the manga list state with the dispatched data*/

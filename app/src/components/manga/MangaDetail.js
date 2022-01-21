@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import  { useDispatch, useSelector } from 'react-redux';
 
-import { selectedManga, removeSelectedManga } from '../../state/actions/animeActions';
-import { MangaActionTypes } from '../../state/constants/action-types';
+import { selectedManga, removeSelectedManga } from '../../state/actions/MangaActions';
+import { MangaActionTypes } from '../../state/constants/Action-types';
 import Spinner from '../basic/Spinner';
 import MangaCover from './MangaCover';
 import MangaTags from './MangaTags';

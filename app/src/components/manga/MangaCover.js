@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { removeSelectedMangaCover, selectedMangaCover } from "../../state/actions/animeActions";
-import { MangaActionTypes } from '../../state/constants/action-types';
+import { removeSelectedMangaCover, selectedMangaCover } from "../../state/actions/MangaActions";
+import { MangaActionTypes } from '../../state/constants/Action-types';
 import Spinner from '../basic/Spinner';
 
 const MangaCover = ({ animeCoverId, animeId }) => {

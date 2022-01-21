@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import { 
-    animeReducer, 
+    AnimeReducer, 
     selectedMangaReducer, 
     selectedMangaCoverReducer 
-} from "./animeReducer";
+} from "./AnimeReducer";
 
 const rootReducers = combineReducers({
-    allMangas: animeReducer,
+    allMangas: AnimeReducer,
     manga: selectedMangaReducer,
     animeCover: selectedMangaCoverReducer
 });
