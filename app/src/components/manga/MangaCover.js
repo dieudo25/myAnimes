@@ -36,7 +36,7 @@ const MangaCover = ({ animeCoverId, animeId }) => {
         return () => {
             dispatch(removeSelectedMangaCover)
         }
-    }, [animeCoverId]);
+    }, [animeCoverId, dispatch]);
 
     if (Object.keys(animeCoverState).length === 0) {
         return <Spinner />;
@@ -44,7 +44,10 @@ const MangaCover = ({ animeCoverId, animeId }) => {
         const data = animeCoverState.data.attributes
         
         return (
-            <img src={ `https://uploads.mangadex.org/covers/${ animeId }/${ data.fileName }` } />
+            <img 
+                src={ `https://uploads.mangadex.org/covers/${ animeId }/${ data.fileName }` } 
+                alt={ `manga cover ${ animeCoverId }` }
+            />
         )
     }
 }

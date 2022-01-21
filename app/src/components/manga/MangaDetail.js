@@ -14,7 +14,7 @@ import DataNotFound from '../basic/DataNotfound';
 const MangaDetail = () => {
     /* Fetch and Display the manga detail */
 
-    const animeState = useSelector(state => state.manga);
+    const mangasState = useSelector(state => state.manga);
     const dispatch = useDispatch();
     
     const params = useParams(); // url parameters
@@ -39,14 +39,14 @@ const MangaDetail = () => {
         return () => {
             dispatch(removeSelectedManga());
         }
-    }, [params.id]);
+    }, [params.id, dispatch]);
 
-    if (Object.keys(animeState).length === 0) {
+    if (Object.keys(mangasState).length === 0) {
         return <Spinner />;
     } else {
-        const data = animeState.data.attributes;
-        const animeId = animeState.data.id;
-        const animeRelationships = animeState.data.relationships;
+        const data = mangasState.data.attributes;
+        const animeId = mangasState.data.id;
+        const animeRelationships = mangasState.data.relationships;
         const animeCover = animeRelationships.find(
             (relation) => relation.type === "cover_art"
         )

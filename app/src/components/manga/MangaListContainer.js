@@ -11,10 +11,10 @@ import MangaTags from './MangaTags';
 const MangaListContainer = () => {
     /* Display the list of mangas in a table */
 
-    const animesState = useSelector(state => state.allMangas);
+    const AllmangasState = useSelector(state => state.allMangas);
     
 
-    if (animesState.loading) {
+    if (AllmangasState.loading) {
         return <Spinner />;
     } else {
         return (
@@ -31,7 +31,7 @@ const MangaListContainer = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {animesState.mangas.data.map((manga) => {
+                        {AllmangasState.mangas.data.map((manga) => {
                             const data = manga.attributes
                             return (
                                 <tr  

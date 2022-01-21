@@ -6,6 +6,9 @@ import { MangaActionTypes } from "../../state/constants/action-types";
 const MangaPagination = () => {
     /* Display nav for paginating through the mangas list */
 
+    const AllmangasState = useSelector(state => state.allMangas);
+    const offset = AllmangasState.offset;
+    const limit = AllmangasState.limit; 
     const dispatch = useDispatch();
     
     return (

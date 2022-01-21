@@ -2,7 +2,7 @@ import { MangaActionTypes } from "../constants/action-types";
 
 const initialState = {
     mangas: [],
-    limit: 10,
+    limit: 5,
     loading: true
 }
 

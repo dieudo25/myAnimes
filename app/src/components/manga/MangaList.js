@@ -11,9 +11,9 @@ import MangaPagination from "./MangaPagination";
 const MangaList = () => {
     /* Fetch the list of mangas */
 
-    const animesState = useSelector(state => state.allMangas);
-    const offset = animesState.offset;
-    const limit = animesState.limit; // Number of mangas per page
+    const AllmangasState = useSelector(state => state.allMangas);
+    const offset = AllmangasState.offset;
+    const limit = AllmangasState.limit; // Number of mangas per page
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,9 +37,9 @@ const MangaList = () => {
         };
 
         fetchMangasList();
-    }, [offset]);
+    }, [offset, limit, dispatch]);
 
-    if (animesState.loading) {
+    if (AllmangasState.loading) {
         return <Spinner />;
     } else {
         return (
