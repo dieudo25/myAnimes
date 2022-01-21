@@ -23,12 +23,13 @@ const MangaList = () => {
             offset: offset,
         }
         const headers = {
+            'Content-Type': 'application/json',
             "Access-Control-Allow-Origin": "*"
         }
 
         const fetchMangasList = async () => {
             const response = await axios
-                .get(ANIME_LIST_URL, headers, { params })
+                .get(ANIME_LIST_URL, { headers, params })
                 .catch((err) => {
                     dispatch({
                         type: MangaActionTypes.ANIME_ERRORS,
