@@ -40,7 +40,7 @@ const MangaListContainer = () => {
                                 >
                                     <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center font-bold">
                                         <Link 
-                                            to={`/manga/${manga.id}`} 
+                                            to={`/myAnimes/manga/${manga.id}`} 
                                             className="hover:text-main-500"
                                         >
                                             { data.title.en ? data.title.en : <DataNotFound /> }

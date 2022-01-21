@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
@@ -14,11 +14,12 @@ import "./App.css"
 
 const App = () => (
   /* MyMangas App */
+
   <Router>
     <Layout >
       <Routes>
-        <Route path="/manga/:id" element={ <MangaDetail /> } />
-        <Route path="/" element={ <MangaList /> } />
+        <Route path="/myAnimes/manga/:id" element={ <MangaDetail /> } />
+        <Route path="/myAnimes" element={ <MangaList /> } />
       </Routes>
     </Layout>
   </Router>
