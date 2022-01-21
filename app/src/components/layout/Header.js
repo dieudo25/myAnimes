@@ -8,7 +8,7 @@ const Header = () => (
         <div className="container max-w-[960px] m-auto">
             <div className="nav-logo">
                 <h2 className="text-[40px]">
-                    <Link to="/myMangas">MyMangas</Link> 
+                    <Link to="/myAnimes">MyMangas</Link> 
                 </h2>
             </div>
         </div>
