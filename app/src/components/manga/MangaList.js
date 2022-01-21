@@ -49,6 +49,7 @@ const MangaList = () => {
                     <a 
                         href="https://api.mangadex.org/docs.html" 
                         target="_blank" 
+                        rel="noreferrer" 
                         className="text-main-500 ml-1"
                     >
                             MangaDex API
