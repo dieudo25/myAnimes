@@ -17,7 +17,7 @@ const MangaList = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const ANIME_LIST_URL = "https://api.mangadex.org/manga";
+        const ANIME_LIST_URL = "/manga";
         const params = { 
             limit: limit,
             offset: offset,
