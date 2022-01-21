@@ -3,18 +3,18 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import  { useDispatch, useSelector } from 'react-redux';
 
-import { selectedAnime, removeSelectedAnime } from '../../state/actions/animeActions';
-import { AnimeActionTypes } from '../../state/constants/action-types';
+import { selectedManga, removeSelectedManga } from '../../state/actions/animeActions';
+import { MangaActionTypes } from '../../state/constants/action-types';
 import Spinner from '../basic/Spinner';
-import AnimeCover from './AnimeCover';
-import AnimeTags from './AnimeTags';
-import AnimeAltTitles from './AnimeAltTitle';
+import MangaCover from './MangaCover';
+import MangaTags from './MangaTags';
+import MangaAltTitles from './MangaAltTitle';
 import DataNotFound from '../basic/DataNotfound';
 
-const AnimeDetail = () => {
-    /* Fetch and Display the anime detail */
+const MangaDetail = () => {
+    /* Fetch and Display the manga detail */
 
-    const animeState = useSelector(state => state.anime);
+    const animeState = useSelector(state => state.manga);
     const dispatch = useDispatch();
     
     const params = useParams(); // url parameters
@@ -23,21 +23,21 @@ const AnimeDetail = () => {
     useEffect(() => {
         const ANIME_DETAIL_URL = `https://api.mangadex.org/manga/${ params.id }`;
 
-        const fetchAnimeDetail = async () => {
+        const fetchMangaDetail = async () => {
             const response = await axios
                 .get(ANIME_DETAIL_URL)
                 .catch((err) => {
                     dispatch({
-                        type: AnimeActionTypes.ANIME_ERRORS,
+                        type: MangaActionTypes.ANIME_ERRORS,
                         payload: err,
                     });
                 });
-            dispatch(selectedAnime(response.data));
+            dispatch(selectedManga(response.data));
         };
 
-        if (params.id && params.id !== "") fetchAnimeDetail();
+        if (params.id && params.id !== "") fetchMangaDetail();
         return () => {
-            dispatch(removeSelectedAnime());
+            dispatch(removeSelectedManga());
         }
     }, [params.id]);
 
@@ -52,7 +52,7 @@ const AnimeDetail = () => {
         )
         console.log(animeCover.id);
         return (
-            <section className="section-anime-detail grid border-2 border-main-500 shadow-lg ">
+            <section className="section-manga-detail grid border-2 border-main-500 shadow-lg ">
                 <div className="bg-main-500 text-white h-[100px] text-center grid items-center px-5">
                     <h1 className="text-[30px]">
                         { 
@@ -60,12 +60,12 @@ const AnimeDetail = () => {
                             data.altTitles.map((title) => (title.en))
                         }</h1>
                 </div>
-                <div className="anime-detail grid gap-5 m-auto max-h-[55vh] overflow-y-scroll scroll-bar w-full">
+                <div className="manga-detail grid gap-5 m-auto max-h-[55vh] overflow-y-scroll scroll-bar w-full">
                     <div className="cover-container">
                         { (animeCover.id && animeId) 
                             ? 
                             <div className="img-container w-full max-w-600px md:w-[250px] m-auto md:mx-auto md:mt-10 md:mb-5">
-                                <AnimeCover 
+                                <MangaCover 
                                     animeId={ animeId }
                                     animeCoverId={ animeCover.id } 
                                 />
@@ -75,7 +75,7 @@ const AnimeDetail = () => {
                         }
                     </div>
                     <div className="alternative-title text-center text-main-500">
-                        <AnimeAltTitles altTitles={data.altTitles} />
+                        <MangaAltTitles altTitles={data.altTitles} />
                     </div>
                     <div className="grid grid-cols-2 px-5 my-5">
                         <div className="text-center grid grid-cols-2 border-2 border-main-500 col-span-2 sm:col-span-1 mt-3 sm:mt-0">
@@ -104,13 +104,13 @@ const AnimeDetail = () => {
                         </div>
                     </div>
                     <div className="w-fit-content m-auto grid grid-cols-2 sm:grid-cols-4 justify-center">
-                            <AnimeTags tags={ data.tags } />
+                            <MangaTags tags={ data.tags } />
                         </div>
                     <div className="desc-container mb-10 px-5">
                         <p>{ data.description.en }</p>
                     </div>
                 </div>
-                <div className='anime-control bg-main-500 text-white grid h-[100px] items-center px-5'>
+                <div className='manga-control bg-main-500 text-white grid h-[100px] items-center px-5'>
                     <div>
                         <button
                             onClick={ () => navigate(-1) }
@@ -128,4 +128,4 @@ const AnimeDetail = () => {
     }
 }
 
-export default AnimeDetail;
+export default MangaDetail;

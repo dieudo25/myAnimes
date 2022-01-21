@@ -1,4 +1,4 @@
-export const AnimeActionTypes = {
+export const MangaActionTypes = {
     SET_ANIMES: "SET_ANIMES",
     SELECTED_ANIME: "SELECTED_ANIME",
     REMOVE_SELECTED_ANIME: "REMOVE_SELECTED_ANIME",

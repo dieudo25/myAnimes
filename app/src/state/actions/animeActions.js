@@ -1,39 +1,39 @@
-import { AnimeActionTypes } from "../constants/action-types";
+import { MangaActionTypes } from "../constants/action-types";
 
-export const setAnimes = (animes) => {
-    /* Action for updating the anime list state with the dispatched data*/
+export const setMangas = (mangas) => {
+    /* Action for updating the manga list state with the dispatched data*/
     return {
-        type: AnimeActionTypes.SET_ANIMES,
-        payload: animes
+        type: MangaActionTypes.SET_ANIMES,
+        payload: mangas
     };
 };
 
-export const selectedAnime = (anime) => {
-    /* Action for updating the anime detail state with the dispatched data*/
+export const selectedManga = (manga) => {
+    /* Action for updating the manga detail state with the dispatched data*/
     return {
-        type: AnimeActionTypes.SELECTED_ANIME,
-        payload: anime
+        type: MangaActionTypes.SELECTED_ANIME,
+        payload: manga
     };
 };
 
-export const removeSelectedAnime = () => {
-    /* Action for clearing the anime detail state*/
+export const removeSelectedManga = () => {
+    /* Action for clearing the manga detail state*/
     return {
-        type: AnimeActionTypes.REMOVE_SELECTED_ANIME,
+        type: MangaActionTypes.REMOVE_SELECTED_ANIME,
     };
 };
 
-export const selectedAnimeCover = (animeCover) => {
-    /* Action for updating the anime cover art state with the dispatched data*/
+export const selectedMangaCover = (animeCover) => {
+    /* Action for updating the manga cover art state with the dispatched data*/
     return {
-        type: AnimeActionTypes.SELECTED_ANIME_COVER,
+        type: MangaActionTypes.SELECTED_ANIME_COVER,
         payload: animeCover
     };
 };
 
-export const removeSelectedAnimeCover = () => {
-    /* Action for clearing the anime cover art state*/
+export const removeSelectedMangaCover = () => {
+    /* Action for clearing the manga cover art state*/
     return {
-        type: AnimeActionTypes.REMOVE_SELECTED_ANIME_COVER,
+        type: MangaActionTypes.REMOVE_SELECTED_ANIME_COVER,
     };
 };

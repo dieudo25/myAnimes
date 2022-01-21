@@ -6,19 +6,19 @@ import {
 } from "react-router-dom";
 
 import Layout from './components/layout/Layout';
-import AnimeList from './components/anime/AnimeList'
-import AnimeDetail from "./components/anime/AnimeDetail";
+import MangaList from './components/manga/MangaList'
+import MangaDetail from "./components/manga/MangaDetail";
 
 import "./App.css"
 
 
 const App = () => (
-  /* MyAnimes App */
+  /* MyMangas App */
   <Router>
     <Layout >
       <Routes>
-        <Route path="/anime/:id" element={ <AnimeDetail /> } />
-        <Route path="/" element={ <AnimeList /> } />
+        <Route path="/manga/:id" element={ <MangaDetail /> } />
+        <Route path="/" element={ <MangaList /> } />
       </Routes>
     </Layout>
   </Router>

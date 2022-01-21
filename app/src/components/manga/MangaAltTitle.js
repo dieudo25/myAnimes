@@ -1,7 +1,7 @@
 import React from "react";
 
-const AnimeAltTitles = ({ altTitles}) => {
-    /* Display the anime alternative title in french and japenese*/
+const MangaAltTitles = ({ altTitles}) => {
+    /* Display the manga alternative title in french and japenese*/
     return (
         altTitles.map((title, index) => (
             <h3 key={ `title-${index}` }>
@@ -11,4 +11,4 @@ const AnimeAltTitles = ({ altTitles}) => {
     )
 };
 
-export default AnimeAltTitles;
+export default MangaAltTitles;

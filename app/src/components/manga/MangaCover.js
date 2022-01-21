@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { removeSelectedAnimeCover, selectedAnimeCover } from "../../state/actions/animeActions";
-import { AnimeActionTypes } from '../../state/constants/action-types';
+import { removeSelectedMangaCover, selectedMangaCover } from "../../state/actions/animeActions";
+import { MangaActionTypes } from '../../state/constants/action-types';
 import Spinner from '../basic/Spinner';
 
-const AnimeCover = ({ animeCoverId, animeId }) => {
+const MangaCover = ({ animeCoverId, animeId }) => {
     /* 
-        Display the anime cover art 
+        Display the manga cover art 
         props :
-            - animeCoverId: the id of the anime cover
-            - animeId: the id of the anime
+            - animeCoverId: the id of the manga cover
+            - animeId: the id of the manga
     */
 
     const animeCoverState = useSelector(state => state.animeCover);
@@ -20,21 +20,21 @@ const AnimeCover = ({ animeCoverId, animeId }) => {
     useEffect(() => {
         const ANIÙE_COVER_URL = `https://api.mangadex.org/cover/${ animeCoverId }`;
 
-        const fetchAnimeCover = async () => {
+        const fetchMangaCover = async () => {
             const response = await axios
                 .get(ANIÙE_COVER_URL)
                 .catch((err) => {
                     dispatch({
-                        type: AnimeActionTypes.ANIME_ERRORS,
+                        type: MangaActionTypes.ANIME_ERRORS,
                         payload: err,
                     });
                 });
-            dispatch(selectedAnimeCover(response.data));
+            dispatch(selectedMangaCover(response.data));
         }
 
-        fetchAnimeCover();
+        fetchMangaCover();
         return () => {
-            dispatch(removeSelectedAnimeCover)
+            dispatch(removeSelectedMangaCover)
         }
     }, [animeCoverId]);
 
@@ -49,4 +49,4 @@ const AnimeCover = ({ animeCoverId, animeId }) => {
     }
 }
 
-export default AnimeCover;
+export default MangaCover;

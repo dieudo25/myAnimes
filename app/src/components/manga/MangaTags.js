@@ -1,10 +1,10 @@
 import React from "react";
 
-const AnimeTags = ({ tags }) => {
+const MangaTags = ({ tags }) => {
     /* 
-        Display a list of the anime tags
+        Display a list of the manga tags
         props:
-            tags: a list of the anime tags
+            tags: a list of the manga tags
     */
     
     const tagStyle = "bg-main-500 py-1 min-w-[85px] h-[fit-content] mb-2 ml-3 rounded-lg text-white text-center text-[12px] font-bold";
@@ -18,4 +18,4 @@ const AnimeTags = ({ tags }) => {
     )
 };
 
-export default AnimeTags;
+export default MangaTags;

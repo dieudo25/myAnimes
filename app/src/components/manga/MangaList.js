@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setAnimes } from '../../state/actions/animeActions';
-import { AnimeActionTypes } from "../../state/constants/action-types";
-import AnimeListContainer from "./AnimeListContainer";
+import { setMangas } from '../../state/actions/animeActions';
+import { MangaActionTypes } from "../../state/constants/action-types";
+import MangaListContainer from "./MangaListContainer";
 import Spinner from "../basic/Spinner";
-import AnimePagination from "./AnimePagination";
+import MangaPagination from "./MangaPagination";
 
-const AnimeList = () => {
-    /* Fetch the list of animes */
+const MangaList = () => {
+    /* Fetch the list of mangas */
 
-    const animesState = useSelector(state => state.allAnimes);
+    const animesState = useSelector(state => state.allMangas);
     const offset = animesState.offset;
-    const limit = animesState.limit; // Number of animes per page
+    const limit = animesState.limit; // Number of mangas per page
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,20 +23,20 @@ const AnimeList = () => {
             offset: offset,
         }
 
-        const fetchAnimesList = async () => {
+        const fetchMangasList = async () => {
             const response = await axios
                 .get(ANIME_LIST_URL, { params })
                 .catch((err) => {
                     dispatch({
-                        type: AnimeActionTypes.ANIME_ERRORS,
+                        type: MangaActionTypes.ANIME_ERRORS,
                         payload: err,
                     })
                 }
             );
-            dispatch(setAnimes(response.data));
+            dispatch(setMangas(response.data));
         };
 
-        fetchAnimesList();
+        fetchMangasList();
     }, [offset]);
 
     if (animesState.loading) {
@@ -54,11 +54,11 @@ const AnimeList = () => {
                             MangaDex API
                     </a>
                 </h2>
-                <AnimeListContainer />
-                <AnimePagination />
+                <MangaListContainer />
+                <MangaPagination />
             </>
         );
     }
 }
 
-export default AnimeList;
+export default MangaList;

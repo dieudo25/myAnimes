@@ -6,19 +6,19 @@ import Spinner from '../basic/Spinner';
 import DataNotFound from '../basic/DataNotfound';
 
 import truncate from '../../utils/truncate';
-import AnimeTags from './AnimeTags';
+import MangaTags from './MangaTags';
 
-const AnimeListContainer = () => {
-    /* Display the list of animes in a table */
+const MangaListContainer = () => {
+    /* Display the list of mangas in a table */
 
-    const animesState = useSelector(state => state.allAnimes);
+    const animesState = useSelector(state => state.allMangas);
     
 
     if (animesState.loading) {
         return <Spinner />;
     } else {
         return (
-            <section className="section-anime overflow-auto border-2 border-main-500 max-h-[65vh] scroll-bar">
+            <section className="section-manga overflow-auto border-2 border-main-500 max-h-[65vh] scroll-bar">
                 <table className="">
                     <thead className="bg-main-500 text-white h-[100px]">
                         <tr>
@@ -31,16 +31,16 @@ const AnimeListContainer = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {animesState.animes.data.map((anime) => {
-                            const data = anime.attributes
+                        {animesState.mangas.data.map((manga) => {
+                            const data = manga.attributes
                             return (
                                 <tr  
-                                    key={anime.id}
+                                    key={manga.id}
                                     className="h-[200px] hover:bg-gray-100 transition"
                                 >
                                     <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center font-bold">
                                         <Link 
-                                            to={`/anime/${anime.id}`} 
+                                            to={`/manga/${manga.id}`} 
                                             className="hover:text-main-500"
                                         >
                                             { data.title.en ? data.title.en : <DataNotFound /> }
@@ -59,7 +59,7 @@ const AnimeListContainer = () => {
                                     </td>
                                     <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center">
                                         <div className="grid grid-cols-2 h-full">
-                                            <AnimeTags tags={ data.tags } />
+                                            <MangaTags tags={ data.tags } />
                                         </div>
                                     </td>
                                     <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center capitalize">
@@ -78,4 +78,4 @@ const AnimeListContainer = () => {
     }
 }
 
-export default AnimeListContainer;
+export default MangaListContainer;
