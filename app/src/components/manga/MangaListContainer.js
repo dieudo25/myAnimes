@@ -18,7 +18,7 @@ const MangaListContainer = () => {
         return <Spinner />;
     } else {
         return (
-            <section className="section-manga overflow-auto border-2 border-main-500 max-h-[65vh] scroll-bar">
+            <section className="section-manga overflow-auto border-2 border-main-500 max-h-[64vh] scroll-bar">
                 <table className="">
                     <thead className="bg-main-500 text-white h-[100px]">
                         <tr>
