@@ -23,8 +23,9 @@ const MangaList = () => {
             offset: offset,
         }
         const headers = {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
         }
 
         const fetchMangasList = async () => {
