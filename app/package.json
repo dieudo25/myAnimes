@@ -26,7 +26,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "https://api.mangadex.org",
   "eslintConfig": {
     "extends": [
       "react-app",

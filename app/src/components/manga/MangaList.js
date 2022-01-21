@@ -17,20 +17,15 @@ const MangaList = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const ANIME_LIST_URL = "/manga";
+        const ANIME_LIST_URL = "https://api.mangadex.org/manga";
         const params = { 
             limit: limit,
             offset: offset,
         }
-        const headers = {
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-        }
 
         const fetchMangasList = async () => {
             const response = await axios
-                .get(ANIME_LIST_URL, { headers, params })
+                .get(ANIME_LIST_URL, { params })
                 .catch((err) => {
                     dispatch({
                         type: MangaActionTypes.ANIME_ERRORS,
