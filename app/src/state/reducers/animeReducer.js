@@ -24,12 +24,12 @@ export const animeReducer = (state=initialState, { type, payload }) => {
         case MangaActionTypes.NEXT_PAGE:
             return {
                 ...state,
-                offset: state.mangas.offset + state.limit
+                offset: state.mangas.offset === state.mangas.total - state.limit ? state.mangas.offset : state.mangas.offset + state.limit
             };
         case MangaActionTypes.PREV_PAGE:
             return {
                 ...state,
-                offset: state.mangas.offset - state.limit
+                offset: state.mangas.offset > 0 ? state.mangas.offset - state.limit : 0
             };    
         default:
             return state;

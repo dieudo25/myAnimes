@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MangaActionTypes } from "../../state/constants/action-types";
 
 
@@ -9,12 +9,14 @@ const MangaPagination = () => {
     const AllmangasState = useSelector(state => state.allMangas);
     const offset = AllmangasState.offset;
     const limit = AllmangasState.limit; 
+    const total = AllmangasState.mangas.total;
+    console.log("total", total) 
     const dispatch = useDispatch();
     
     return (
         <section className="pagination-container grid grid-cols-2 mt-3">
             <div 
-                className="bg-main-500 h-20 hover:bg-main-900 border-r-2 transition cursor-pointer grid items-center justify-center"
+                className={ `${ offset === 0 ? "bg-gray-400" : "bg-main-500 hover:bg-main-900 cursor-pointer" } h-20 border-r-2 transition grid items-center justify-center` }
                 onClick={() => dispatch({
                     type: MangaActionTypes.PREV_PAGE,
                 })}
@@ -24,7 +26,7 @@ const MangaPagination = () => {
                 </span>
             </div>
             <div 
-                className="bg-main-500 h-20 hover:bg-main-900 border-l-2 transition cursor-pointer grid items-center justify-center"
+                className={ `${ offset === total - limit ? "bg-gray-400" : "bg-main-500 hover:bg-main-900 cursor-pointer" } h-20 border-r-2 transition grid items-center justify-center` }
                 onClick={() => dispatch({
                     type: MangaActionTypes.NEXT_PAGE,
                 })}
