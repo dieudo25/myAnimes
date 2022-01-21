@@ -18,8 +18,8 @@ const App = () => (
   <Router>
     <Layout >
       <Routes>
-        <Route path="/myAnimes/manga/:id" element={ <MangaDetail /> } />
-        <Route path="/myAnimes" element={ <MangaList /> } />
+        <Route path="/myMangas/manga/:id" element={ <MangaDetail /> } />
+        <Route path="/myMangas" element={ <MangaList /> } />
       </Routes>
     </Layout>
   </Router>
