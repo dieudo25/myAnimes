@@ -3,29 +3,24 @@ import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import Spinner from '../basic/Spinner';
-import AnimeCover from './AnimeCover';
 import DataNotFound from '../basic/DataNotfound';
 
 import truncate from '../../utils/truncate';
 import AnimeTags from './AnimeTags';
 
 const AnimeListContainer = () => {
-    const animesState = useSelector(state => state.allAnimes);
+    /* Display the list of animes in a table */
 
-    const theadStyle = "bg-main-500 text-white h-[100px]";
-    const trStyle = "h-[200px]";
-    const tdStyle = "py-5 px-3 min-w-[120px] border-b-2 border-main-500";
-    const tagsContainer = "grid grid-cols-1 h-full";
-    const tdLinkStyle = "hover:text-main-500";
+    const animesState = useSelector(state => state.allAnimes);
     
 
     if (animesState.loading) {
         return <Spinner />;
     } else {
         return (
-            <section className="section-anime overflow-x-scroll border-2 border-main-500 scroll-bar">
+            <section className="section-anime overflow-auto border-2 border-main-500 max-h-[65vh] scroll-bar">
                 <table className="">
-                    <thead className={ theadStyle }>
+                    <thead className="bg-main-500 text-white h-[100px]">
                         <tr>
                             <th>Title</th>
                             <th>Description</th>
@@ -41,23 +36,17 @@ const AnimeListContainer = () => {
                             return (
                                 <tr  
                                     key={anime.id}
-                                    className={ trStyle }
+                                    className="h-[200px] hover:bg-gray-100 transition"
                                 >
-                                    <td className={ `${ tdStyle } text-center` }>
-                                        {/* { animeCoverId && anime.id && 
-                                            <AnimeCover 
-                                                animeId={ anime.id }
-                                                animeCoverId={ animeCoverId } 
-                                            />
-                                        } */}
+                                    <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center font-bold">
                                         <Link 
                                             to={`/anime/${anime.id}`} 
-                                            className={ tdLinkStyle }
+                                            className="hover:text-main-500"
                                         >
                                             { data.title.en ? data.title.en : <DataNotFound /> }
                                         </Link>
                                     </td>
-                                    <td className={ `${ tdStyle } min-w-[200px]` }>
+                                    <td className="py-5 px-3 border-b-2 border-main-500  min-w-[400px]">
                                         <div>
 
                                             <span>
@@ -65,18 +54,18 @@ const AnimeListContainer = () => {
                                             </span>
                                         </div>
                                     </td>
-                                    <td className={ `${ tdStyle } text-center` }>
+                                    <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center">
                                         { data.year ? data.year : <DataNotFound /> }
                                     </td>
-                                    <td className={ `${ tdStyle } text-center` }>
-                                        <div className={ tagsContainer }>
+                                    <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center">
+                                        <div className="grid grid-cols-2 h-full">
                                             <AnimeTags tags={ data.tags } />
                                         </div>
                                     </td>
-                                    <td className={ `${ tdStyle } text-center capitalize` }>
+                                    <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center capitalize">
                                         { data.publicationDemographic ? data.publicationDemographic : <DataNotFound /> }
                                     </td>
-                                    <td className={ `${ tdStyle } text-center capitalize` }>
+                                    <td className="py-5 px-3 min-w-[200px] border-b-2 border-main-500  text-center capitalize">
                                         { data.status ? data.status : <DataNotFound /> }
                                     </td>
                                 </tr>

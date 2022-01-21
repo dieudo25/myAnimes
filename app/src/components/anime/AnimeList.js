@@ -6,11 +6,14 @@ import { setAnimes } from '../../state/actions/animeActions';
 import { AnimeActionTypes } from "../../state/constants/action-types";
 import AnimeListContainer from "./AnimeListContainer";
 import Spinner from "../basic/Spinner";
+import AnimePagination from "./AnimePagination";
 
 const AnimeList = () => {
+    /* Fetch the list of animes */
+
     const animesState = useSelector(state => state.allAnimes);
     const offset = animesState.offset;
-    const limit = animesState.limit;
+    const limit = animesState.limit; // Number of animes per page
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,37 +41,11 @@ const AnimeList = () => {
 
     if (animesState.loading) {
         return <Spinner />;
-    } else if (!animesState.loading && animesState.error) {
-        return (
-            <>
-                <h1>{ JSON.stringify(animesState.error.toJSON) }</h1>
-                <div className="">
-                    { JSON.stringify(animesState.error.toJSON) }
-                </div>
-            </>
-        )
     } else {
         return (
             <>
                 <AnimeListContainer />
-                <section className="pagination-container grid grid-cols-2 max-w-[960px]">
-                    <div 
-                        className="bg-main-500 h-20 w-20"
-                        onClick={() => dispatch({
-                            type: AnimeActionTypes.PREV_PAGE,
-                        })}
-                    >
-
-                    </div>
-                    <div 
-                        className="bg-second-500 h-20 w-20"
-                        onClick={() => dispatch({
-                            type: AnimeActionTypes.NEXT_PAGE,
-                        })}
-                    >
-
-                    </div>
-                </section>
+                <AnimePagination />
             </>
         );
     }

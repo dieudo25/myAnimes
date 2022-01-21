@@ -7,6 +7,13 @@ import { AnimeActionTypes } from '../../state/constants/action-types';
 import Spinner from '../basic/Spinner';
 
 const AnimeCover = ({ animeCoverId, animeId }) => {
+    /* 
+        Display the anime cover art 
+        props :
+            - animeCoverId: the id of the anime cover
+            - animeId: the id of the anime
+    */
+
     const animeCoverState = useSelector(state => state.animeCover);
     const dispatch = useDispatch();
 
@@ -29,7 +36,7 @@ const AnimeCover = ({ animeCoverId, animeId }) => {
         return () => {
             dispatch(removeSelectedAnimeCover)
         }
-    }, []);
+    }, [animeCoverId]);
 
     if (Object.keys(animeCoverState).length === 0) {
         return <Spinner />;
