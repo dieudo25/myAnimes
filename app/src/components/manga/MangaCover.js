@@ -18,11 +18,11 @@ const MangaCover = ({ animeCoverId, animeId }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const ANIÙE_COVER_URL = `https://api.mangadex.org/cover/${ animeCoverId }`;
+        const ANIME_COVER_URL = `https://api.mangadex.org/cover/${ animeCoverId }`;
 
         const fetchMangaCover = async () => {
             const response = await axios
-                .get(ANIÙE_COVER_URL)
+                .get(ANIME_COVER_URL)
                 .catch((err) => {
                     dispatch({
                         type: MangaActionTypes.ANIME_ERRORS,

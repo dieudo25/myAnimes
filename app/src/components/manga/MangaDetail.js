@@ -58,7 +58,8 @@ const MangaDetail = () => {
                         { 
                             data.title.en ||
                             data.altTitles.map((title) => (title.en))
-                        }</h1>
+                        }
+                    </h1>
                 </div>
                 <div className="manga-detail grid gap-5 m-auto max-h-[55vh] overflow-y-scroll scroll-bar w-full">
                     <div className="cover-container">
